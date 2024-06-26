@@ -1,0 +1,59 @@
+﻿@model IdentityCore.Models.ViewModels.ConfirmViewModel
+
+@{
+    ViewData["Title"] = "Confirm Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Confirm</h1>
+
+<h4>Confirm Email</h4>
+<hr />
+<div class="text-center">
+    @if (Model.IsConfirmed)
+    {
+        if (Model.ResetPassword)
+        {
+            <div class="alert alert-success">
+                Password reset email sent.
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="ConfirmEmail" asp-controller="Auth" asp-route-resetPassword="@Model.ResetPassword" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Token" />
+                        <input type="hidden" asp-for="Code" />
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" readonly="readonly" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SendCode" class="control-label"></label>
+                            <input asp-for="SendCode" class="form-control" />
+                            <span asp-validation-for="SendCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Confirm" class="btn btn-primary mt-2" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-success">
+                Your account is verified.
+            </div>
+            <p>
+                <a asp-action="Login" asp-controller="Auth">Login</a>
+            </p>
+        }
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            Your account was not verified.
+        </div>
+    }
+</div>

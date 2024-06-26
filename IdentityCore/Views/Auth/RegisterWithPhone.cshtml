@@ -1,0 +1,37 @@
+﻿@model IdentityCore.Models.ViewModels.RegisterWithPhoneViewModel
+
+@{
+    ViewData["Title"] = "Register By Mobile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Register</h1>
+
+<h4>Register With Phone</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RegisterWithPhone">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check mt-2">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AcceptPolicy" /> @Html.DisplayNameFor(model => model.AcceptPolicy)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary mt-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Cancel</a> |
+    <a asp-action="Register" asp-controller="Auth">Register</a>
+</div>
+

@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Confirm Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Confirm</h1>
+
+<h4>Enter your email to confirm.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="LoginConfirmEmail" asp-controller="Auth" method="post">
+            <div class="form-group">
+                <label for="input_email" class="control-label"></label>
+                <input class="form-control" type="email" name="email" id="input_email" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirm" class="btn btn-primary mt-2" />
+            </div>
+        </form>
+    </div>
+</div>

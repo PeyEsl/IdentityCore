@@ -1,0 +1,22 @@
+﻿@model IdentityCore.Models.ViewModels.ConfirmViewModel
+
+@{
+    Layout = null;
+}
+
+<div>
+    <h1>Identity Core</h1>
+    @if (Model.ResetPassword)
+    {
+        <h4>Password Reset Code</h4>
+        <p>Dear user, your password reset code is:</p>
+        <h2>@Model.Code</h2>
+        <a href="@Model.CallBackUrl">Password Reset</a>
+    }
+    else
+    {
+        <h4>Email Verification</h4>
+        <p>Dear user, please click the following link to verify your email:</p>
+        <a href="@Model.CallBackUrl">Verify Email</a>
+    }
+</div>
