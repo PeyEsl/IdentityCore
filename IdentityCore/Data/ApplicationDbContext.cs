@@ -24,8 +24,8 @@ namespace IdentityCore.Data
             {
                 Id = 1,
                 DisplayName = "IdentityCore Email",
-                From = "artan.co.5827@gmail.com",
-                Password = "hvsssvjtdaeunevp",
+                From = "YOUR_EMAIL_ADDRESS",
+                Password = "YOUR_APP_PASSWORD", // Enabling SMTP in Gmail settings
                 SMTP = "smtp.gmail.com",
                 Port = 587,
                 EnableSSL = true,
